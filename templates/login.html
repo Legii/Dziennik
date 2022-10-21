@@ -1,0 +1,39 @@
+{% extends "bootstrap/base.html" %}
+{% block title %}{{ title }}{% endblock %}
+
+
+
+{% block scripts %}
+{{ super() }}
+{{ moment.include_moment() }}
+{{ moment.locale("pl") }}
+{% endblock %}
+{% block navbar %}
+    {% if userLogin %}
+        {% include "include/navbar-login.html" %}
+    {% else %}
+        {% include "include/navbar.html" %}
+    {% endif %}
+{% endblock %}
+{%block content%}
+
+<div class="container mt-3">
+    {% if userLogin %}
+        <h3>Jesteś zalogowany jako {{ userLogin }}</h3>
+    {% else %}
+        <div class="col-lg-4 offset-lg-4">
+            <form action="/logIn" method="POST">
+                {{ login.hidden_tag() }}
+                {{ login.userLogin.label(class_="form-label") }}
+                {{ login.userLogin(class_="form-control") }}
+                {{ login.userPass.label(class_="form-label") }}
+                {{ login.userPass(class_="form-control") }}
+                {{ login.submit(class_="btn btn-dark mt-3 float-end") }}
+
+            </form>
+        </div>
+
+    {% endif %}
+
+</div>
+{% endblock %}

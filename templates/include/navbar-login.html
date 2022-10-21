@@ -1,0 +1,26 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark p-3">
+  <div class="d-flex col-12 col-lg-2 col-md-3 mb-2 mb-lg-0 flex-wrap flex-md-nowrap justify-content-between">
+    <a class="navbar-brand" href="/">Home</a>
+  </div>
+  <div class="col-12 col-md-5 col-lg-8 d-flex align-items-center justify-content-md-end mt-3 mt-md-0">
+    <ul class="navbar-nav me-5">
+
+
+    </ul>
+    <div class="dropdown me-5">
+        <button class="btn btn-warning dropdown-toggle" type="button" data-bs-toggle="dropdown">
+          Witaj, {{ userLogin }}
+        </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <li><a class="dropdown-item" href="/dashboard"><i class="bi bi-speedometer2"></i> Dashboard</a></li>
+        <li><a class="dropdown-item"><i class="bi bi-list-ul"></i> Przedmioty</a></li>
+        <li><a class="dropdown-item"><i class="bi bi-table"></i> Oceny</a></li>
+        <li><a class="dropdown-item"><i class="bi bi-calculator"></i> Średnia</a></li>
+        <li class="dropdown-divider"></li>
+        <li><a class="dropdown-item" href="/logOut"><i class="bi bi-box-arrow-left"></i> Wyloguj</a></li>
+      </ul>
+
+    </div>
+
+  </div>
+</nav>

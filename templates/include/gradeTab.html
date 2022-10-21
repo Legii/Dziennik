@@ -1,0 +1,51 @@
+{
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th>Nazwa przedmiotu</th>
+        <th>Oceny - pierwszy semestr</th>
+        <th>Średnia</th>
+        <th>Ocena śródroczna</th>
+        <th>Oceny - drugi semestr</th>
+        <th>Średnia</th>
+        <th>Ocena śródroczna</th>
+        <th>Ocena roczna</th>
+
+
+    </tr>
+    {% for subject,terms in grades.items() %}
+    <tr>
+        <td>{{ subject | title }}</td>
+        {% for term, categories in terms.items() %}
+        <td>
+            {% if term == "term1" %}
+            {% for category, grades in categories.items() %}
+            {% if category == "answer" %}
+            {% for grade in grades %}
+            <span class="badge bg-success">{{ grade }}</span>
+            {% endfor %}
+            {% endif %}
+            {% if category == "quiz" %}
+            {% for grade in grades %}
+            <span class="badge bg-info">{{ grade }}</span>
+            {% endfor %}
+            {% endif %}
+            {% if category == "test" %}
+            {% for grade in grades %}
+            <span class="badge bg-danger">{{ grade }}</span>
+            {% endfor %}
+            {% endif %}
+
+            {% endfor %}
+            {% endif %}
+        </td>
+        <td>Średnia</td>
+        <td>{{ categories["interim"] }}</td>
+        {% endfor %}
+
+
+    </tr>
+    {% endfor %}
+    </thead>
+</table>
+}
